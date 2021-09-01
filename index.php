@@ -14,12 +14,17 @@ class Movie {
   public $genre;
   public $year;
   public $length = 0;
+  public $old = 'Questo film é recente';
 
   function __constructor($_title){
     $this->title = $_title;
   }
 
-  
+  public function setOld(){
+    if($this->year < 1980){
+      $this->old = 'Questo film risale a prima del 1980';
+    }
+  }
 }
 
 $fight_club = new Movie();
