@@ -28,6 +28,9 @@ class Movie {
 }
 
 $fight_club = new Movie();
+$fight_club->title = "Fight club";
+var_dump($fight_club);
+
 $memento = new Movie();
 $ritorno_al_futuro = new Movie();
 
