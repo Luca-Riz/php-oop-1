@@ -16,21 +16,30 @@ class Movie {
   public $length = 0;
   public $old = 'Questo film é recente';
 
-  function __constructor($_title){
+  function __construct($_title){
     $this->title = $_title;
   }
 
   public function setOld(){
     if($this->year < 1980){
-      $this->old = 'Questo film risale a prima del 1980';
+      $this->old = "Questo film risale a prima del 1980";
     }
+  }
+
+  public function getOld(){
+    return $this->old;
   }
 }
 
-$fight_club = new Movie();
-$fight_club->title = "Fight club";
+$fight_club = new Movie('Fight club');
+$fight_club->genre = "Drama";
+$fight_club->year = 1960;
+$fight_club->length = 139;
 var_dump($fight_club);
 
-$memento = new Movie();
-$ritorno_al_futuro = new Movie();
+$class_methods = get_class_methods('Movie');
+var_dump($class_methods);
+
+// $memento = new Movie();
+// $ritorno_al_futuro = new Movie();
 
