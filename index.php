@@ -14,6 +14,12 @@ class Movie {
   public $genre;
   public $year;
   public $length = 0;
+
+  function __constructor($_title){
+    $this->title = $_title;
+  }
+
+  
 }
 
 $fight_club = new Movie();
