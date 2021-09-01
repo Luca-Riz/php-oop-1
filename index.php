@@ -9,7 +9,10 @@
 
 <?php
 
+//! classe Movie
 class Movie {
+
+  //! variabili d'istanza o oggetti
   public $title;
   public $genre;
   public $year;
@@ -17,6 +20,7 @@ class Movie {
   public $old = 'Questo film é recente';
   public $long = '';
 
+  //! costruttore
   function __construct($_title, $_year){
     $this->title = $_title;
     $this->year = $_year;
@@ -24,12 +28,14 @@ class Movie {
     $this->setOld();
   }
 
+  //! metodo
   public function setOld(){
     if($this->year < 1990){
       $this->old = "Questo film risale a prima del 1990";
     }
   }
 
+  //! metodo
   public function setLong(){
     if($this->length > 120){
       $this->long = 'Questo film dura piú di 2 ore';
@@ -38,21 +44,23 @@ class Movie {
     }
   }
 
+  //! metodo
   public function getOld(){
     return $this->old;
   }
 
+  //! metodo
   public function getLong(){
     return $this->long;
   }
 }
 
 // Fight club
-$fight_club = new Movie('Fight club',1999);
+$fight_club = new Movie('Fight club',1999); //?qui passo titolo e anno e quindi posso lanciare il metodo direttamente nel costruttore
 $fight_club->genre = "Drama";
 $fight_club->length = 139;
 $old = $fight_club->getOld();
-$fight_club->setLong();
+$fight_club->setLong(); //? per 'long' devo lanciare il metodo da qui, altrimenti non viene letto il parametro, vede quello di default, in questo caso ''
 $long = $fight_club->getLong();
 var_dump($fight_club);
 
