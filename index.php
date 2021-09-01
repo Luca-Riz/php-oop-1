@@ -15,6 +15,7 @@ class Movie {
   public $year;
   public $length = 0;
   public $old = 'Questo film é recente';
+  public $long = '';
 
   function __construct($_title, $_year){
     $this->title = $_title;
@@ -29,8 +30,20 @@ class Movie {
     }
   }
 
+  public function setLong(){
+    if($this->length > 120){
+      $this->long = 'Questo film dura piú di 2 ore';
+    } else {
+      $this->long = 'Durata inferiore alle 2 ore';
+    }
+  }
+
   public function getOld(){
     return $this->old;
+  }
+
+  public function getLong(){
+    return $this->long;
   }
 }
 
@@ -39,6 +52,8 @@ $fight_club = new Movie('Fight club',1999);
 $fight_club->genre = "Drama";
 $fight_club->length = 139;
 $old = $fight_club->getOld();
+$fight_club->setLong();
+$long = $fight_club->getLong();
 var_dump($fight_club);
 
 // Memento
@@ -46,6 +61,8 @@ $memento = new Movie('Memento',2000);
 $memento->genre = "Mystery, Thriller";
 $memento->length = 113;
 $old = $memento->getOld();
+$memento->setLong();
+$long = $memento->getLong();
 var_dump($memento);
 
 // Ritorno al futuro
@@ -53,6 +70,8 @@ $ritorno_al_futuro = new Movie('Ritorno al futuro', 1985);
 $ritorno_al_futuro->genre = "Adventure, Comedy, Sci-Fi";
 $ritorno_al_futuro->length = 116;
 $old = $ritorno_al_futuro->getOld();
+$ritorno_al_futuro->setLong();
+$long = $ritorno_al_futuro->getLong();
 var_dump($ritorno_al_futuro);
 
 // $class_methods = get_class_methods('Movie');
